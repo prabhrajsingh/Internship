@@ -3,6 +3,8 @@ from FEEDBACKS.models import Feedback
 
 # Register your models here.
 class FeedbackAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['id','suggestion']
+    search_fields = ['id', 'suggestion']
+    
 
-admin.site.register(Feedback, FeedbackAdmin)
+admin.site.register(Feedback)

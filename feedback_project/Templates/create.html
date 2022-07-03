@@ -22,11 +22,12 @@
         <div class="body" style = 'margin-top:30px;' >
             <h1><b>Any&ensp;Idea&ensp;or&ensp;Suggestion&ensp;for&ensp;the&ensp;Company&ensp;to&ensp;Work&ensp;On?</h1>
             {% block content %}
-                <form action= '/view_suggestion' method = 'POST'>
+                <form action= '/view_suggestion' method = 'post'>
                     {% csrf_token %} 
-                            <textarea style="width: 960px; height: 159px;" name = 'q' placeholder="You can give your Suggestion Here." ></textarea>
-                            <br>
-                            <button style = 'margin-top:10px;' type = 'submit'>POST</button>
+                        {{form.as_p }}   
+                        <textarea style="width: 960px; height: 159px;"  placeholder="You can give your Suggestion Here." ></textarea>
+                        <br>
+                        <button style = 'margin-top:10px;' type = 'submit'>POST</button>
                 </form>
             {% endblock content %}
         </div>         

@@ -5,7 +5,7 @@ from FEEDBACKS.models import Feedback
 
 def idea(request):
     #feedback_link = """<a href=https://youtu.be/dQw4w9WgXcQ>FEEDBACK LINK</a>"""
-    return render(request, 'home_view.html')
+    return render(request, 'menu.html')
 
 def enter_suggestion(request):
     return render(request,'create.html')
