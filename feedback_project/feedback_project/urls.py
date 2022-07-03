@@ -21,5 +21,6 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.idea, name='ideas'),
-    path('suggestion', views.suggestion, name='suggestion'),
+    path('enter_suggestion', views.enter_suggestion, name='suggestion'),
+    path('view_suggestion', views.view_suggestion, name='suggestion'),
 ]
