@@ -1,18 +1,17 @@
-from django.shortcuts import render
+from tkinter.tix import Tree
+from django.shortcuts import redirect, render
+from .forms import FeedbackForm
+from .models import Feedback
+
 
 # Create your views here.
-def review_create_view(request):
+def enter_suggestion(request):
+    dictionary = {}
+    if request.method == "POST":
+        comment_type =  request.POST.get('comment_type')
+        suggestion =  request.POST.get('suggestion')
+        feedback_obj = Feedback.objects.create(comment_type = comment_type, suggestion = suggestion )
+        dictionary['object'] = feedback_obj
+        dictionary['created'] = True
 
-    form = FeeForm(request.POST or None)
-    context = {
-                "form" : form
-              }
-
-    if (form.is_valid()):
-        review_obj = form.save()
-        context['form'] = ReviewForm()
-        return redirect(review_obj.get_absolute_url())
-        # context['object'] = review_obj
-        # context['created'] = True
-
-    return render(request, "reviews/create.html", context = context)
+    return render(request, "FEEDBACKS/create.html", context = dictionary)

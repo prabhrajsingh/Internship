@@ -16,11 +16,23 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+admin.site.site_header = 'BACKEND'
+admin.site.site_title = 'BACKEND PANEL'
+admin.site.index_title = 'WELCOME TO FEEDBACKS MANAGE PANEL'
+
 from . import views
+
+#from .views import idea
+
+from FEEDBACKS.views import (
+    enter_suggestion,
+)
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.idea, name='ideas'),
-    path('enter_suggestion', views.enter_suggestion, name='suggestion'),
-    path('view_suggestion', views.view_suggestion, name='suggestion'),
+    
+    path('', views.idea, name='idea'),
+    #path('', idea, name='idea'),
+    path('FEEDBACKS/create/', enter_suggestion, name = 'FEEDBACKS/create'),
 ]
